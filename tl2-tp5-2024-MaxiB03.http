@@ -1,0 +1,6 @@
+@tl2_tp5_2024_MaxiB03_HostAddress = http://localhost:5007
+
+GET {{tl2_tp5_2024_MaxiB03_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
