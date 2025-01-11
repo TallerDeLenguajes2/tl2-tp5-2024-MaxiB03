@@ -12,6 +12,13 @@ public class ProductoController : ControllerBase
         productoRepository = new ProductosRepository();
     }
 
+    [HttpPost("crearProducto")]
+    public ActionResult crearProducto([FromBody] Producto nuevoProducto)
+    {
+        productoRepository.CrearProducto(nuevoProducto);
+        return Ok("Producto creado correctamente.");
+    }
+
     [HttpGet("GetProductos")]
     public ActionResult<List<Producto>> GetProductos()
     {
@@ -22,5 +29,20 @@ public class ProductoController : ControllerBase
             return BadRequest("No se encontraron Productos");
         }
         return Ok(productos);
+    }
+
+    [HttpPut("/api/Producto/{idProducto}")]
+    public ActionResult ModificarProducto(int idProducto, [FromQuery] string Descripcion)
+    {
+        Producto producto = productoRepository.ObtenerDetallePorId(idProducto);
+        if (producto == null)
+        {
+            return NotFound("Producto no encontrado.");
+        }
+
+        producto.Descripcion = Descripcion;
+        productoRepository.ModificarProducto(producto.IdProducto, producto);
+
+        return Ok("Descripcion modificada con exito");
     }
 }
