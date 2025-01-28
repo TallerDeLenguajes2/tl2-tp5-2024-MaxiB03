@@ -68,7 +68,6 @@ public class ProductosRepository
                     productos.Add(producto);
                 }
             }
-
             connection.Close();
         }
 
@@ -102,7 +101,6 @@ public class ProductosRepository
                     };
                 }
             }
-        
             connection.Close();
         }
 

@@ -31,7 +31,7 @@ public class ProductoController : ControllerBase
         return Ok(productos);
     }
 
-    [HttpPut("/api/Producto/{idProducto}")]
+    [HttpPut("api/Producto/{idProducto}")]
     public ActionResult ModificarProducto(int idProducto, [FromQuery] string Descripcion)
     {
         Producto producto = productoRepository.ObtenerDetallePorId(idProducto);

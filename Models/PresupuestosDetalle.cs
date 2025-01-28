@@ -14,4 +14,6 @@ public class PresupuestosDetalle
         Cantidad=cantidad;
         Producto=producto;
     }
+
+    public PresupuestosDetalle(){}
 }
